@@ -16,22 +16,22 @@ const questions = [
   },
 ];
 const tags = [
-  { tag: "JAVASCRIPT", value: 20152, _id: 1 },
-  { tag: "NEXT.JS", value: 18493, _id: 2 },
+  { tag: "JAVASCRIPT", value: 20152, _id: "1" },
+  { tag: "NEXT.JS", value: 18493, _id: "2" },
   {
     tag: "REACT.JS",
     value: 16269,
-    _id: 3,
+    _id: "3",
   },
-  { tag: "NODE.JS", value: 15326, _id: 4 },
+  { tag: "NODE.JS", value: 15326, _id: "4" },
   {
     tag: "PYTHON",
     value: 21568,
-    _id: 5,
+    _id: "5",
   },
-  { tag: "MICROSOFT AZURE", value: 5621, _id: 6 },
-  { tag: "MACHINE LEARNING", value: 15896, _id: 7 },
-  { tag: "POSTGRESQL", value: 8546, _id: 8 },
+  { tag: "MICROSOFT AZURE", value: 5621, _id: "6" },
+  { tag: "MACHINE LEARNING", value: 15896, _id: "7" },
+  { tag: "POSTGRESQL", value: 8546, _id: "8" },
 ];
 
 const RightSidebar = () => {
