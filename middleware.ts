@@ -5,8 +5,8 @@ export default authMiddleware({
     "/",
     "/api/webhook",
     "question/:id",
-    "tags",
-    "tags/:id",
+    "/tags",
+    "/tags/:id",
     "/profile/:id",
     "/community",
     "/jobs",
@@ -15,5 +15,5 @@ export default authMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };
