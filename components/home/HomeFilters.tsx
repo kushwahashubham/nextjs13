@@ -14,7 +14,7 @@ const HomeFilters = () => {
           className={`body-medium rounded-lg px-6 py-3 capitalize shadow-none ${
             active === items.value
               ? "bg-primary-100 text-primary-500"
-              : "bg-light-800 text-light-500"
+              : "background-light800_dark300 text-light-500"
           }`}
         >
           {items.name}
