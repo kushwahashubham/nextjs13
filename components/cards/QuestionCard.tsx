@@ -20,9 +20,11 @@ interface Props {
   answers: Array<object>;
   upvotes: string[];
   createdAt: Date;
+  clerkId?: string;
 }
 
 const QuestionCard = ({
+  clerkId,
   _id,
   title,
   tags,
