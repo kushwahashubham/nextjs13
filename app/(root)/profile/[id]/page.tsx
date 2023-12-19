@@ -48,7 +48,7 @@ const Page = async ({ params, searchParams }: URLProps) => {
               {userInfo.user.location && (
                 <ProfileLink
                   imgURL="/assets/icons/location.svg"
-                  title={userInfo.user.loaction}
+                  title={userInfo.user.location}
                 />
               )}
               <ProfileLink
@@ -66,7 +66,7 @@ const Page = async ({ params, searchParams }: URLProps) => {
         <div className="flex justify-end max-sm:mb-5 max-sm:w-full sm:mt-3">
           <SignedIn>
             {clerkId === userInfo.user.clerkId && (
-              <Link href="/profile/edit">
+              <Link href={`/profile/edit/`}>
                 <Button className="paragraph-medium btn-secondary text-dark300_light900 min-h-[46px] min-w-[175px] px-4 py-3">
                   Edit Profile
                 </Button>
@@ -95,7 +95,7 @@ const Page = async ({ params, searchParams }: URLProps) => {
             <QuestionTab
               searchParams={searchParams}
               userId={userInfo.user._id}
-              clerId={clerkId}
+              clerkId={clerkId}
             />
           </TabsContent>
           <TabsContent value="answers" className="flex w-full flex-col gap-6">

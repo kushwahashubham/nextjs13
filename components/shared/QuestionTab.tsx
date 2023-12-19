@@ -6,7 +6,7 @@ import { SearchParamsProps } from "@/types";
 
 interface Props extends SearchParamsProps {
   userId: string;
-  clerId?: string | null;
+  clerkId?: string | null;
 }
 
 const QuestionTab = async ({ searchProps, userId, clerkId }: Props) => {
