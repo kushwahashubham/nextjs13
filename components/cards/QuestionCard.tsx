@@ -39,10 +39,6 @@ const QuestionCard = ({
 }: QuestionProps) => {
   const showActionButtons = clerkId && clerkId === author.clerkId;
 
-  console.log(clerkId === author.clerkId);
-  console.log(clerkId);
-  console.log(author.clerkId);
-
   return (
     <div className="card-wrapper rounded-[10px] p-9 sm:px-11">
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
