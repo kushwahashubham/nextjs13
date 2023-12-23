@@ -11,6 +11,7 @@ import {
 import { revalidatePath } from "next/cache";
 import Answer from "@/database/answer.model";
 import Interaction from "@/database/interaction.model";
+import User from "@/database/user.model";
 
 export async function createAnswer(params: CreateAnswerParams) {
   try {
@@ -26,13 +27,22 @@ export async function createAnswer(params: CreateAnswerParams) {
     });
 
     // add the answers to the question's answer array
-    await Question.findByIdAndUpdate(question, {
+    const questionObject = await Question.findByIdAndUpdate(question, {
       $push: { answers: newAnswer._id },
     });
 
-    // Careate an interaction record for user's answer action
+    // create an interaction for creating a answer
+    await Interaction.create({
+      user: author,
+      action: "answer",
+      question,
+      answer: newAnswer._id,
+      tags: questionObject.tags,
+    });
 
-    // increase author's reputation by +5 for answering a question.
+    // Update author's reputation by +10 for creating a answer
+    await User.findByIdAndUpdate(author, { $inc: { reputation: 10 } });
+
     revalidatePath(path);
   } catch (error) {
     console.log(error);
@@ -111,9 +121,18 @@ export async function upvoteAnswer(params: AnswerVoteParams) {
     if (!answer) {
       throw new Error("Answer not found");
     }
+    // Check if the upvoting user is the same as the answer author
+    if (answer.author.toString() !== userId) {
+      // Increment author's reputation by +2/-2 for upvoting/revoking an upvote to the answer
+      await User.findByIdAndUpdate(userId, {
+        $inc: { reputation: hasupVoted ? -2 : 2 },
+      });
 
-    // Increment author's reputation by +10 for upvoting a question
-
+      // Increment author's reputation by +10/-10 for recieving an upvote/revoke to the answer
+      await User.findByIdAndUpdate(answer.author, {
+        $inc: { reputation: hasupVoted ? -10 : 10 },
+      });
+    }
     revalidatePath(path);
   } catch (error) {
     console.log(error);
@@ -147,9 +166,18 @@ export async function downvoteAnswer(params: AnswerVoteParams) {
     if (!answer) {
       throw new Error("Answer not found");
     }
+    // Check if the upvoting user is the same as the answer author
+    if (answer.author.toString() !== userId) {
+      // decrement author's reputation by -2/2 for downvoting/revoking an downvote to the question
+      await User.findByIdAndUpdate(userId, {
+        $inc: { reputation: hasdownVoted ? 2 : -2 },
+      });
 
-    // Decrement author's reputation by -10 for downvoting a question
-
+      // decrement author's reputation by -10/10 for recieving an downvote/revoke to the question
+      await User.findByIdAndUpdate(answer.author, {
+        $inc: { reputation: hasdownVoted ? 10 : -10 },
+      });
+    }
     revalidatePath(path);
   } catch (error) {
     console.log(error);
