@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { createAnswer } from "@/lib/actions/answer.action";
 import { usePathname } from "next/navigation";
+import { toast } from "../ui/use-toast";
 
 interface Props {
   question: string;
@@ -61,6 +62,10 @@ const Answer = ({ question, questionId, authorId }: Props) => {
     } finally {
       setIsSubmitting(false);
     }
+    return toast({
+      title: "Answer Posted",
+      description: "Your answer has been successfully posted.",
+    });
   };
 
   const generateAIAnswer = async () => {
@@ -96,6 +101,11 @@ const Answer = ({ question, questionId, authorId }: Props) => {
     } finally {
       setSetIsSubmittingAI(false);
     }
+    return toast({
+      title: "AI Answer Generated",
+      description:
+        "The AI has successfully generated an answer based on you query.",
+    });
   };
 
   return (

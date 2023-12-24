@@ -21,6 +21,7 @@ import Image from "next/image";
 import { createQuestion, editQuestion } from "@/lib/actions/question.action";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "@/context/ThemeProvider";
+import { toast } from "../ui/use-toast";
 
 interface Props {
   type?: string;
@@ -77,6 +78,12 @@ const Question = ({ type, mongoUserId, questionDetails }: Props) => {
     } finally {
       setIsSubmitting(false);
     }
+    return toast({
+      title: `Question ${type === "Edit" ? "Edited" : "Posted"}`,
+      description: `Your question has been successfully ${
+        type === "Edit" ? "edited" : "posted"
+      }.`,
+    });
   }
 
   const handleInputKeyDown = (
