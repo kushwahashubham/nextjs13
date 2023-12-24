@@ -11,6 +11,13 @@ import ProfileLink from "@/components/shared/ProfileLink";
 import Stats from "@/components/shared/Stats";
 import QuestionTab from "@/components/shared/QuestionTab";
 import AnswersTab from "@/components/shared/AnswersTab";
+import type { Metadata } from "next";
+
+export const profileMetadata: Metadata = {
+  title: "Your Developer Profile | Dev Overflow",
+  description:
+    "View and showcase your developer profile on Dev Overflow. Explore your achievements, posted questions, and contributions through answers to help others in the community.",
+};
 
 const Page = async ({ params, searchParams }: URLProps) => {
   const { userId: clerkId } = auth();

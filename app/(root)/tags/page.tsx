@@ -5,7 +5,14 @@ import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { TagFilters } from "@/constants/filters";
 import { getAllTags } from "@/lib/actions/tag.action";
 import { SearchParamsProps } from "@/types";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const tagsMetadata: Metadata = {
+  title: "Tags | Dev Overflow",
+  description:
+    "Explore and discover content tagged with various topics and technologies on Dev Overflow.",
+};
 
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllTags({

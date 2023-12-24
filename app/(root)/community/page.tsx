@@ -6,6 +6,13 @@ import LocalSearchbar from "@/components/shared/search/LocalSearchbar";
 import { UserFilters } from "@/constants/filters";
 import { getAllUsers } from "@/lib/actions/user.action";
 import { SearchParamsProps } from "@/types";
+import type { Metadata } from "next";
+
+export const communityMetadata: Metadata = {
+  title: "Community | Dev Overflow",
+  description:
+    "Discover and engage with the diverse and knowledgeable community of developers on Dev Overflow.",
+};
 
 const Page = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllUsers({
