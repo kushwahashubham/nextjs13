@@ -8,7 +8,7 @@ import { SearchParamsProps } from "@/types";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const tagsMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Tags | Dev Overflow",
   description:
     "Explore and discover content tagged with various topics and technologies on Dev Overflow.",

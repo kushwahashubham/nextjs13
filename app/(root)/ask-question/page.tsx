@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import React from "react";
 
-export const askQuestionMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Ask a Question | Dev Overflow",
   description:
     "Have a coding challenge or a burning question? Ask the Dev Overflow community for help and insights.",

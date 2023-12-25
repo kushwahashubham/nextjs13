@@ -9,7 +9,7 @@ import { SearchParamsProps } from "@/types";
 import { auth } from "@clerk/nextjs";
 import type { Metadata } from "next";
 
-export const collectionMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Saved Collections | Dev Overflow",
   description:
     "Explore and manage all the collections of questions you have saved on Dev Overflow. Organize your favorite content for easy access.",

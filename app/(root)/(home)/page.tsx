@@ -15,7 +15,7 @@ import Pagination from "@/components/shared/Pagination";
 import type { Metadata } from "next";
 import { auth } from "@clerk/nextjs";
 
-export const homeMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Home | Dev Overflow",
   description:
     "Dev Overflow is a vibrant community of 1,000,000+ developers. Join us to connect, learn, and grow together.",

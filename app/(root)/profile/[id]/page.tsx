@@ -13,7 +13,7 @@ import QuestionTab from "@/components/shared/QuestionTab";
 import AnswersTab from "@/components/shared/AnswersTab";
 import type { Metadata } from "next";
 
-export const profileMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Your Developer Profile | Dev Overflow",
   description:
     "View and showcase your developer profile on Dev Overflow. Explore your achievements, posted questions, and contributions through answers to help others in the community.",
