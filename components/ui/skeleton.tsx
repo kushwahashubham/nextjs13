@@ -3,7 +3,8 @@ import { cn } from "@/lib/utils";
 function Skeleton({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+} // eslint-disable-next-line no-undef
+: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
