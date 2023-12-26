@@ -58,14 +58,14 @@ const JobsFilter = ({ countriesList }: JobsFilterProps) => {
           </div>
         </SelectTrigger>
 
-        <SelectContent className="body-semibold max-h-[350px] max-w-[250px]">
+        <SelectContent className="body-semibold text-dark500_light700 max-h-[350px] max-w-[250px] border-none bg-light-900 dark:bg-dark-300">
           <SelectGroup>
             {countriesList ? (
               countriesList.map((country: Country) => (
                 <SelectItem
                   key={country.name.common}
                   value={country.name.common}
-                  className="px-4 py-3"
+                  className="cursor-pointer px-4 py-3 focus:bg-light-800 dark:focus:bg-dark-400"
                 >
                   {country.name.common}
                 </SelectItem>
