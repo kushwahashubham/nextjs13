@@ -26,7 +26,7 @@
 - [TinyMCE](https://www.tiny.cloud/)
 - [Vercel](https://vercel.com/)
 
-## Features 🪶
+## Features ✨
 
 - Responsive design for optimal viewing on all devices
 - The website provides both light and dark mode versions.
